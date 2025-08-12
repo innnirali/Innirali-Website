@@ -1,0 +1,144 @@
+{
+  "services": [
+    {
+      "id": "marketing",
+      "title": "Marketing Services",
+      "subtitle": "Performance marketing, content, and campaigns that convert",
+      "description": "Get your hands on cutting-edge marketing strategies and tools to accelerate your business growth. Master digital marketing with our comprehensive suite of services.",
+      "icon": "megaphone",
+      "features": [
+        "SEO and content strategy",
+        "Paid media and analytics", 
+        "Conversion rate optimization",
+        "Social media management",
+        "Email marketing campaigns",
+        "Marketing automation"
+      ],
+      "cta": "Start Marketing Services",
+      "color": "#3B82F6",
+      "popular": true
+    },
+    {
+      "id": "consulting",
+      "title": "Software Consulting",
+      "subtitle": "Architecture, audits, and roadmaps to accelerate delivery",
+      "description": "This playground is intended for anyone interested in learning software architecture and development best practices in depth.",
+      "icon": "code",
+      "features": [
+        "Architecture and platform design",
+        "Code audits and modernization",
+        "Delivery coaching and governance",
+        "Technical strategy planning",
+        "Performance optimization",
+        "Security assessments"
+      ],
+      "cta": "Start Software Consulting",
+      "color": "#10B981",
+      "pro": true
+    },
+    {
+      "id": "ai",
+      "title": "AI Services",
+      "subtitle": "Custom models, copilots, and automation tailored to your data",
+      "description": "Access cutting-edge AI tools and try out machine learning models on your own. Master artificial intelligence with hands-on experience.",
+      "icon": "brain",
+      "features": [
+        "Chatbots and copilots",
+        "RAG and knowledge search",
+        "Workflow automation",
+        "Computer vision solutions",
+        "Natural language processing",
+        "Predictive analytics"
+      ],
+      "cta": "Start AI Services",
+      "color": "#8B5CF6",
+      "new": true
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud Services",
+      "subtitle": "Secure, scalable infrastructure and DevOps best practices",
+      "description": "Get your hands cloudy with cloud infrastructure and master your DevOps skills with our comprehensive cloud playground.",
+      "icon": "cloud",
+      "features": [
+        "Kubernetes and containers",
+        "Serverless and APIs",
+        "CI/CD, monitoring, and SRE",
+        "Multi-cloud strategies",
+        "Security and compliance",
+        "Cost optimization"
+      ],
+      "cta": "Start Cloud Services",
+      "color": "#F59E0B",
+      "cloud": true
+    },
+    {
+      "id": "web-development",
+      "title": "Web Development",
+      "subtitle": "Modern, responsive websites and web applications",
+      "description": "Build stunning web experiences with cutting-edge technologies. Master frontend and backend development with hands-on projects.",
+      "icon": "globe",
+      "features": [
+        "React and modern frameworks",
+        "Progressive web apps",
+        "API development",
+        "Performance optimization",
+        "Accessibility compliance",
+        "SEO implementation"
+      ],
+      "cta": "Start Web Development",
+      "color": "#EF4444"
+    },
+    {
+      "id": "mobile-apps",
+      "title": "Mobile App Development",
+      "subtitle": "Native and cross-platform mobile applications",
+      "description": "Create exceptional mobile experiences for iOS and Android. Master mobile development with our comprehensive toolkit.",
+      "icon": "smartphone",
+      "features": [
+        "iOS and Android development",
+        "React Native and Flutter",
+        "App store optimization",
+        "Push notifications",
+        "Offline functionality",
+        "Performance monitoring"
+      ],
+      "cta": "Start Mobile Development",
+      "color": "#06B6D4"
+    },
+    {
+      "id": "data-analytics",
+      "title": "Data Analytics",
+      "subtitle": "Transform data into actionable insights",
+      "description": "Unlock the power of your data with advanced analytics and visualization tools. Master data-driven decision making.",
+      "icon": "chart",
+      "features": [
+        "Business intelligence dashboards",
+        "Data visualization",
+        "Statistical analysis",
+        "Predictive modeling",
+        "ETL pipeline development",
+        "Real-time analytics"
+      ],
+      "cta": "Start Data Analytics",
+      "color": "#84CC16"
+    },
+    {
+      "id": "cybersecurity",
+      "title": "Cybersecurity",
+      "subtitle": "Protect your digital assets and infrastructure",
+      "description": "Secure your business with comprehensive cybersecurity solutions. Master security best practices and threat detection.",
+      "icon": "shield",
+      "features": [
+        "Security assessments",
+        "Penetration testing",
+        "Incident response",
+        "Compliance frameworks",
+        "Security monitoring",
+        "Employee training"
+      ],
+      "cta": "Start Cybersecurity",
+      "color": "#DC2626"
+    }
+  ]
+}
