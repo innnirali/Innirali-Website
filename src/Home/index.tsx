@@ -61,7 +61,7 @@ function Home() {
                   <li>Conversion rate optimization</li>
                 </ul>
                 <div className="card__footer">
-                  <Link to="/services#marketing" className="link">Learn more →</Link>
+                  <Link to="/services" className="link">Learn more →</Link>
                 </div>
               </article>
 
@@ -87,7 +87,7 @@ function Home() {
                   <li>Delivery coaching and governance</li>
                 </ul>
                 <div className="card__footer">
-                  <Link to="/services#consulting" className="link">Learn more →</Link>
+                  <Link to="/services" className="link">Learn more →</Link>
                 </div>
               </article>
 
@@ -112,7 +112,7 @@ function Home() {
                   <li>Workflow automation</li>
                 </ul>
                 <div className="card__footer">
-                  <Link to="/services#ai" className="link">Learn more →</Link>
+                  <Link to="/services" className="link">Learn more →</Link>
                 </div>
               </article>
 
@@ -136,7 +136,7 @@ function Home() {
                   <li>CI/CD, monitoring, and SRE</li>
                 </ul>
                 <div className="card__footer">
-                  <Link to="/services#cloud" className="link">Learn more →</Link>
+                  <Link to="/services" className="link">Learn more →</Link>
                 </div>
               </article>
             </div>
