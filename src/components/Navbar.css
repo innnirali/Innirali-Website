@@ -6,12 +6,11 @@
   z-index: 1000;
   background: transparent;
   border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .navbar--scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
 
@@ -34,9 +33,18 @@
   font-family: var(--font-display);
   font-size: 24px;
   font-weight: 800;
-  color: #fff;
+  color: var(--brand-600);
   line-height: 1;
   transition: color 0.3s ease;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  transition: color 0.2s ease;
 }
 
 .navbar--scrolled .navbar__logo {
@@ -48,31 +56,42 @@
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
   margin-top: -2px;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .navbar--scrolled .navbar__tagline {
   color: var(--muted-500);
 }
 
+
+
 .navbar__menu {
   display: flex;
-  gap: 32px;
+  gap: 40px;
   align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin: 0 40px;
 }
 
 .navbar__link {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-weight: 500;
-  font-size: 15px;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 17px;
+  transition: color 0.2s ease;
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .navbar--scrolled .navbar__link {
   color: var(--text-600);
 }
+
+
 
 .navbar__link:hover {
   color: #fff;
@@ -82,6 +101,8 @@
   color: var(--brand-600);
 }
 
+/* Link hover color is now always brand color */
+
 .navbar__link::after {
   content: '';
   position: absolute;
@@ -90,12 +111,14 @@
   width: 0;
   height: 2px;
   background: #fff;
-  transition: width 0.2s ease;
+  transition: width 0.15s ease;
 }
 
 .navbar--scrolled .navbar__link::after {
   background: var(--brand-600);
 }
+
+
 
 .navbar__link:hover::after {
   width: 100%;
@@ -136,6 +159,8 @@
   border-color: var(--brand-600);
 }
 
+/* Button styles are now always brand colors */
+
 .navbar__actions .btn--ghost:hover {
   background: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.6);
@@ -146,6 +171,8 @@
   background: var(--brand-700);
   border-color: var(--brand-700);
 }
+
+/* Button hover styles are now always brand colors */
 
 .navbar__toggle {
   display: none;
@@ -168,76 +195,48 @@
   background: var(--text-600);
 }
 
-.navbar__dropdown { position: relative; }
-.navbar__link--button { background: transparent; border: none; cursor: pointer; padding: 0; font: inherit; }
-.navbar__link--button .chevron { margin-left: 6px; font-size: 12px; opacity: 0.9; }
 
-.navbar__dropdown-menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  left: 0;
-  min-width: 220px;
-  background: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 12px 30px rgba(16, 24, 40, 0.18);
-  padding: 10px;
-  display: grid;
-  gap: 6px;
-  transform: translateY(-6px);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: all 0.2s ease;
-  z-index: 1001;
-}
 
-.navbar__dropdown.is-open .navbar__dropdown-menu,
-.navbar__dropdown:hover .navbar__dropdown-menu {
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.navbar__dropdown-menu a {
-  padding: 10px 12px;
-  border-radius: 8px;
-  color: var(--text-600);
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.navbar__dropdown-menu a:hover {
-  background: #eef2ff;
-  color: var(--brand-600);
-}
-
-/* Transparent navbar variant */
-.navbar:not(.navbar--scrolled) .navbar__dropdown-menu {
-  background: rgba(8, 17, 40, 0.85);
-  border-color: rgba(255, 255, 255, 0.15);
-}
-.navbar:not(.navbar--scrolled) .navbar__dropdown-menu a { color: rgba(255,255,255,0.9); }
-.navbar:not(.navbar--scrolled) .navbar__dropdown-menu a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+/* Dropdown functionality removed - Services is now a simple link */
 
 /* Mobile menu */
 @media (max-width: 768px) {
   .navbar__menu {
     position: fixed;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
+    top: 80px;
+    left: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
     flex-direction: column;
-    padding: 24px;
-    gap: 20px;
-    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    padding: 32px 24px;
+    gap: 12px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    box-shadow: 
+      0 32px 64px -12px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar__menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 24px;
+    pointer-events: none;
+    z-index: -1;
   }
 
   .navbar__menu--open {
@@ -253,6 +252,41 @@
   .navbar__actions .btn--ghost {
     display: none;
   }
+  
+  .navbar__link {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 18px;
+    font-weight: 600;
+    padding: 18px 20px;
+    text-align: left;
+    border-radius: 0;
+    margin: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: none;
+  }
+  
+  .navbar__link:hover {
+    color: rgba(255, 255, 255, 1);
+    background: transparent;
+    border-color: transparent;
+    transform: translateX(8px);
+    box-shadow: none;
+  }
+  
+  .navbar__link:active {
+    transform: translateX(8px);
+  }
+  
+
 }
 
 @media (max-width: 480px) {
@@ -269,18 +303,4 @@
   }
 }
 
-/* Mobile: reveal submenu inline */
-@media (max-width: 768px) {
-  .navbar__dropdown { width: 100%; }
-  .navbar__dropdown-menu {
-    position: static;
-    border: 1px dashed rgba(226,232,240,0.6);
-    background: rgba(255,255,255,0.96);
-    box-shadow: none;
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: none;
-    margin-top: 8px;
-  }
-}
+/* Mobile dropdown styles removed - Services is now a simple link */

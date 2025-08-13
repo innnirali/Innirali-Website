@@ -83,12 +83,6 @@ function ServiceIcon({ icon, color }: { icon: string; color: string }) {
 export default function ServiceCard({ service }: ServiceCardProps) {
   return (
     <article className="service-card" id={service.id}>
-      {/* Badge */}
-      {service.popular && <span className="service-card__badge service-card__badge--popular">Popular</span>}
-      {service.pro && <span className="service-card__badge service-card__badge--pro">Pro</span>}
-      {service.new && <span className="service-card__badge service-card__badge--new">New</span>}
-      {service.cloud && <span className="service-card__badge service-card__badge--cloud">Cloud</span>}
-
       {/* Header */}
       <div className="service-card__header">
         <ServiceIcon icon={service.icon} color={service.color} />

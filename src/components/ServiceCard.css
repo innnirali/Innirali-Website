@@ -5,48 +5,17 @@
   box-shadow: 0 4px 20px rgba(16, 24, 40, 0.08);
   border: 1px solid #f1f5f9;
   position: relative;
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   overflow: hidden;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(16, 24, 40, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(16, 24, 40, 0.12);
   border-color: #e2e8f0;
 }
 
-/* Badge */
-.service-card__badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
 
-.service-card__badge--popular {
-  background: #fef3c7;
-  color: #d97706;
-}
-
-.service-card__badge--pro {
-  background: #dbeafe;
-  color: #2563eb;
-}
-
-.service-card__badge--new {
-  background: #f3e8ff;
-  color: #9333ea;
-}
-
-.service-card__badge--cloud {
-  background: #fef3c7;
-  color: #d97706;
-}
 
 /* Header */
 .service-card__header {
@@ -129,7 +98,7 @@
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .service-card__cta:hover {

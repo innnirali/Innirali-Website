@@ -9,7 +9,6 @@ function Home() {
     <>
       <Navbar />
       <main className="home">
-        {/* Hero Section */}
         <section className="hero">
           <Particles className="hero__particles" quantity={80} />
           <div className="container">
@@ -193,6 +192,8 @@ function Home() {
             </div>
           </div>
         </section>
+
+
       </main>
       <Footer />
     </>

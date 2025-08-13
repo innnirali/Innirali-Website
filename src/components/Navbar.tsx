@@ -1,12 +1,43 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const location = useLocation()
+  const navigate = useNavigate()
+
+  const handleAboutClick = () => {
+    closeMenus()
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first, then scroll to about
+      navigate('/')
+      // Use setTimeout to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const aboutSection = document.getElementById('about')
+        if (aboutSection) {
+          aboutSection.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // If on home page, just scroll to about
+      const aboutSection = document.getElementById('about')
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
+
+  const handleContactClick = () => {
+    closeMenus()
+    navigate('/contact')
+  }
+
+  const handleMenuToggle = () => {
+    console.log('Menu toggle clicked, current state:', isMenuOpen)
+    setIsMenuOpen(!isMenuOpen)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,12 +52,10 @@ export default function Navbar() {
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false)
-    setIsServicesOpen(false)
   }, [location.pathname])
 
   function closeMenus() {
     setIsMenuOpen(false)
-    setIsServicesOpen(false)
   }
 
   return (
@@ -38,37 +67,16 @@ export default function Navbar() {
         </Link>
 
         <div className={`navbar__menu ${isMenuOpen ? 'navbar__menu--open' : ''}`}>
-          <div
-            className={`navbar__dropdown ${isServicesOpen ? 'is-open' : ''}`}
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
-          >
-            <button
-              className="navbar__link navbar__link--button"
-              aria-haspopup="menu"
-              aria-expanded={isServicesOpen}
-              onClick={() => setIsServicesOpen((v) => !v)}
-            >
-              Services
-              <span className="chevron" aria-hidden>▾</span>
-            </button>
-            <div className="navbar__dropdown-menu" role="menu">
-              <Link to="/services#marketing" role="menuitem" onClick={closeMenus}>Marketing</Link>
-              <Link to="/services#consulting" role="menuitem" onClick={closeMenus}>Software Consulting</Link>
-              <Link to="/services#ai" role="menuitem" onClick={closeMenus}>AI Services</Link>
-              <Link to="/services#cloud" role="menuitem" onClick={closeMenus}>Cloud Services</Link>
-            </div>
-          </div>
-          <Link to="/#about" className="navbar__link" onClick={closeMenus}>About</Link>
-          <Link to="/#contact" className="navbar__link" onClick={closeMenus}>Contact</Link>
-          <Link to="/#blog" className="navbar__link" onClick={closeMenus}>Blog</Link>
+          <Link to="/services" className="navbar__link" onClick={closeMenus}>Services</Link>
+          <button className="navbar__link" onClick={handleAboutClick}>About</button>
+          <button className="navbar__link" onClick={handleContactClick}>Contact</button>
         </div>
 
         <div className="navbar__actions">
           <Link to="/services" className="btn btn--ghost btn--small" onClick={closeMenus}>Get Started</Link>
           <button 
             className="navbar__toggle"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={handleMenuToggle}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
             aria-controls="primary-menu"

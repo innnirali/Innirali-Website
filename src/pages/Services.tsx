@@ -6,21 +6,9 @@ import servicesData from '../data/services.json'
 import './Services.css'
 
 export default function Services() {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('all')
 
-  // Filter services based on search and category
-  const filteredServices = servicesData.services.filter(service => {
-    const matchesSearch = service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         service.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === 'all' || 
-                           (selectedCategory === 'popular' && service.popular) ||
-                           (selectedCategory === 'pro' && service.pro) ||
-                           (selectedCategory === 'new' && service.new) ||
-                           (selectedCategory === 'cloud' && service.cloud)
-    
-    return matchesSearch && matchesCategory
-  })
+  // Show all services
+  const services = servicesData.services
 
   return (
     <>
@@ -35,53 +23,55 @@ export default function Services() {
               Choose from our curated selection of professional solutions.
             </p>
             
-            {/* Search and Filter */}
-            <div className="services-controls">
-              <div className="search-box">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8"/>
-                  <path d="m21 21-4.35-4.35"/>
-                </svg>
-                <input
-                  type="text"
-                  placeholder="Search services..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="search-input"
-                />
+            {/* Service Categories */}
+            <div className="service-categories">
+              <div className="category-card">
+                <div className="category-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M10 3H6a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h4"/>
+                    <path d="M14 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                    <path d="M12 8v8"/>
+                    <path d="M8 12h8"/>
+                  </svg>
+                </div>
+                <h3>Marketing</h3>
+                <p>Digital marketing & growth</p>
               </div>
               
-              <div className="category-filters">
-                <button
-                  className={`filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory('all')}
-                >
-                  All Services
-                </button>
-                <button
-                  className={`filter-btn ${selectedCategory === 'popular' ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory('popular')}
-                >
-                  Popular
-                </button>
-                <button
-                  className={`filter-btn ${selectedCategory === 'pro' ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory('pro')}
-                >
-                  Pro
-                </button>
-                <button
-                  className={`filter-btn ${selectedCategory === 'new' ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory('new')}
-                >
-                  New
-                </button>
-                <button
-                  className={`filter-btn ${selectedCategory === 'cloud' ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory('cloud')}
-                >
-                  Cloud
-                </button>
+              <div className="category-card">
+                <div className="category-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3"/>
+                    <path d="M21 8V5a2 2 0 0 0-2-2h-3"/>
+                    <path d="M3 16v3a2 2 0 0 0 2 2h3"/>
+                    <path d="M16 21h3a2 2 0 0 0 2-2v-3"/>
+                  </svg>
+                </div>
+                <h3>Software Consulting</h3>
+                <p>Architecture & development</p>
+              </div>
+              
+              <div className="category-card">
+                <div className="category-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M9 12l2 2 4-4"/>
+                    <path d="M21 12c-1 0-2-1-2-2s1-2 2-2 2 1 2 2-1 2-2 2z"/>
+                    <path d="M3 12c1 0 2-1 2-2s-1-2-2-2-2 1-2 2 1 2 2 2z"/>
+                    <path d="M12 3c0 1-1 2-2 2s-2 1-2 2 1 2 2 2 2 1 2 2 1-2 2-2 2-1 2-2-1-2-2-2-2-1-2-2z"/>
+                  </svg>
+                </div>
+                <h3>AI Services</h3>
+                <p>Machine learning & automation</p>
+              </div>
+              
+              <div className="category-card">
+                <div className="category-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                  </svg>
+                </div>
+                <h3>Cloud Services</h3>
+                <p>Infrastructure & deployment</p>
               </div>
             </div>
           </div>
@@ -91,21 +81,10 @@ export default function Services() {
         <section className="services-grid-section">
           <div className="container">
             <div className="services-grid">
-              {filteredServices.map((service) => (
+              {services.map((service) => (
                 <ServiceCard key={service.id} service={service} />
               ))}
             </div>
-            
-            {filteredServices.length === 0 && (
-              <div className="no-results">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <circle cx="11" cy="11" r="8"/>
-                  <path d="m21 21-4.35-4.35"/>
-                </svg>
-                <h3>No services found</h3>
-                <p>Try adjusting your search or filter criteria</p>
-              </div>
-            )}
           </div>
         </section>
       </main>

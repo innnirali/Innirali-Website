@@ -1,14 +1,17 @@
 .services-page {
-  padding-top: 80px; /* Account for fixed navbar */
+  /* Remove padding-top since hero will extend to top */
 }
 
 /* Hero Section */
 .services-hero {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
-  padding: 80px 0 60px;
+  padding: 280px 0 120px; /* Much more top padding for generous spacing */
   text-align: center;
+  margin-top: -80px; /* Pull up to cover navbar area */
 }
+
+
 
 .services-hero__title {
   font-size: clamp(32px, 5vw, 48px);
@@ -25,76 +28,64 @@
   line-height: 1.6;
 }
 
-/* Controls */
-.services-controls {
-  display: flex;
-  flex-direction: column;
+/* Service Categories */
+.service-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
-  align-items: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
-.search-box {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-}
-
-.search-box svg {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #64748b;
-}
-
-.search-input {
-  width: 100%;
-  padding: 14px 16px 14px 48px;
-  border: none;
-  border-radius: 12px;
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  transition: all 0.2s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-}
-
-.category-filters {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.filter-btn {
-  padding: 8px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 500;
+.category-card {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.filter-btn:hover {
+.category-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+
+
+.category-icon {
+  width: 64px;
+  height: 64px;
   background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.filter-btn.active {
-  background: #fff;
-  color: #667eea;
-  border-color: #fff;
+.category-card:hover .category-icon {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.category-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.category-card p {
+  font-size: 14px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
 }
 
 /* Services Grid Section */
@@ -148,21 +139,27 @@
     margin-bottom: 32px;
   }
   
-  .services-controls {
-    gap: 20px;
+  .service-categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
   
-  .search-box {
-    max-width: 100%;
+  .category-card {
+    padding: 24px 16px;
   }
   
-  .category-filters {
-    gap: 6px;
+  .category-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
   }
   
-  .filter-btn {
-    padding: 6px 12px;
-    font-size: 13px;
+  .category-card h3 {
+    font-size: 16px;
+  }
+  
+  .category-card p {
+    font-size: 12px;
   }
   
   .services-grid {
@@ -178,24 +175,49 @@
 
 @media (max-width: 480px) {
   .services-hero {
-    padding: 50px 0 30px;
+    padding: 180px 0 75px;
   }
   
   .services-hero__title {
-    font-size: 24px;
+    font-size: 20px;
   }
   
   .services-hero__subtitle {
-    font-size: 15px;
+    font-size: 13px;
+    margin-bottom: 15px;
   }
   
-  .search-input {
-    padding: 12px 16px 12px 44px;
-    font-size: 15px;
+  .service-categories {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 0 12px;
   }
   
-  .filter-btn {
-    padding: 5px 10px;
-    font-size: 12px;
+  .category-card {
+    padding: 12px 8px;
+  }
+  
+  .category-icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+  }
+  
+  .category-card h3 {
+    font-size: 11px;
+  }
+  
+  .category-card p {
+    font-size: 9px;
+  }
+  
+  .services-grid {
+    gap: 12px;
+    margin-top: 15px;
+    padding: 0 12px;
+  }
+  
+  .services-grid-section {
+    padding: 15px 0;
   }
 }

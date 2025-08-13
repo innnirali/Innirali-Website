@@ -64,7 +64,7 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <p className="footer__copyright">
-            © 2024 Innirali. All rights reserved.
+            © 2025 Innirali. All rights reserved.
           </p>
           <div className="footer__legal">
             <a href="#privacy">Privacy</a>
